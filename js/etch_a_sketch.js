@@ -1,6 +1,15 @@
-const testVar = document.createElement('div');
-testVar.classList.add('test-div');
-testVar.textContent = 'Shall we begin?';
+const greeting = document.createElement('div');
+greeting.classList.add('greeting');
+greeting.textContent = 'Shall we begin?';
 
 const header = document.querySelector('header');
-header.appendChild(testVar);
+header.appendChild(greeting); 
+
+const gridContainer = document.createElement('div');
+gridContainer.classList.add('grid-container');
+
+
+
+
+const main = document.querySelector('main');
+main.appendChild(gridContainer);
