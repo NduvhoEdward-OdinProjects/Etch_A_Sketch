@@ -15,14 +15,18 @@ body {
 	text-align: center;
 }
 
+main {
+	display: flex;
+	height: 100%;
+	width: 100%;
+}
 .grid-container {
 	background-color: rgb(12, 15, 25);
 	margin: 48px;
 	padding: 8px;
 	border-radius: 8px;
 	display: flex;
-	height: vh;
-	width: vh;
+	flex: 1;
 }
 
 footer {
