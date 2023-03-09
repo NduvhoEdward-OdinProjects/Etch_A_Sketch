@@ -14,7 +14,7 @@ const main = document.querySelector('main');
 main.appendChild(gridContainer);
 
 // Grids 
-const gridSize = 8;
+const gridSize = 16;
 let blocksRow = null; 
 
 for (let i = 0; i < gridSize; i++) { 
