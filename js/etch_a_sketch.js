@@ -1,7 +1,3 @@
-// Greetings msg
-const header = document.querySelector('header');
-header.appendChild(greeting); 
-
 // Grid container
 const gridContainer = document.createElement('div');
 gridContainer.classList.add('grid-container');
