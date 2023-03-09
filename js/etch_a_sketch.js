@@ -34,7 +34,16 @@ function clearGrid() {
 // Grid size button 
 let getGridSize = document.getElementById("get-grid-size");
 getGridSize.addEventListener("click", function() {
-	gridSize = parseInt(prompt("Please enter your desired grid size:"));
-	clearGrid()
-	drawGrid();
+	
+	let userInput = prompt("Please enter your desired grid size:");
+	let parsedInput = parseInt(userInput);
+	if (!isNaN(parsedInput)) {
+    	gridSize = parsedInput;
+    	clearGrid()
+		drawGrid();
+  	} else {
+    	console.log("Invalid input: " + userInput);
+  	}
+
+
 });
