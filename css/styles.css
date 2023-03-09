@@ -26,6 +26,7 @@ main {
 	padding: 8px;
 	border-radius: 8px;
 	display: flex;
+	flex-direction: column;
 	flex: 1;
 }
 
@@ -37,3 +38,17 @@ footer {
 	justify-content: center;
 	align-items: center;
 }
+
+.block {
+	background-color: rgb(170, 170, 170);
+	margin: 2px;
+	border-radius: 4px;
+}
+.blocksRow {
+	display: flex;
+	flex: 1;
+}
+.blocksRow > * {
+	flex: 1;
+}
+
