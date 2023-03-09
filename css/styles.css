@@ -46,7 +46,7 @@ footer {
 	transition: background-color 0.5s;
 }
 .block:hover {
-	background-color: red;
+	background-color: rgb(25, 60, 20);
 }
 .blocksRow {
 	display: flex;
