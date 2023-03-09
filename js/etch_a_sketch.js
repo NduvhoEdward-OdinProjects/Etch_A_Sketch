@@ -1,8 +1,4 @@
 // Greetings msg
-const greeting = document.createElement('div');
-greeting.classList.add('greeting');
-greeting.textContent = 'Shall we begin?';
-
 const header = document.querySelector('header');
 header.appendChild(greeting); 
 
