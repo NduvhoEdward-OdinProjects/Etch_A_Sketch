@@ -27,6 +27,35 @@ header {
 	background-color: brown;
 	cursor: alias;
 }
+#colorModes {
+	display: flex;
+	justify-content: space-evenly;
+	width: 400px;
+	flex-direction: row;
+	align-content: stretch;
+}
+#colorModes > div > div {
+	height: 50px;
+	width: 50px;
+	border-radius: 10%; 
+}
+#colorModes #green {
+	background-color: greenyellow;
+}
+#colorModes #rainbow {
+	background-color: rgb(134, 24, 24);
+}
+#colorModes #eraser {
+	background-color: rgb(66, 44, 44);
+}
+#colorModes > div {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+
+
 
 main {
 	display: flex;
