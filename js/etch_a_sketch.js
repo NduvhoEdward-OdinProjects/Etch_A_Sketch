@@ -48,14 +48,16 @@ getGridSize.addEventListener("click", function() {
 
 
 
-//const blocks = document.querySelectorAll('.block');
-//blocks.forEach(block => {
-//	block.addEventListener('mouseover', updateBackground);
-//})
+const blocks = document.querySelectorAll('.block');
+blocks.forEach(block => {
+	block.addEventListener('mouseover', updateBackground);
+})
 
-//function updateBackground(block){
-//	console.log("MouseOver");
-//	console.log(block);
-//} 
+function updateBackground(event){
+	console.log("MouseOver");
+	console.log(event);
+	// Change the background color of the block
+	event.target.style.backgroundColor = 'black';
+} 
 
 
