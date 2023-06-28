@@ -48,6 +48,9 @@ header {
 #colorModes #eraser {
 	background-color: rgb(66, 44, 44);
 }
+#colorModes #clear {
+	background-color: rgb(155, 122, 122);
+}
 #colorModes > div {
 	display: flex;
 	flex-direction: column;

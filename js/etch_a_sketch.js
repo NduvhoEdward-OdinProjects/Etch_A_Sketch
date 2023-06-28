@@ -20,9 +20,8 @@ function drawGrid() {
 	    }
 	    gridContainer.appendChild(blocksRow);
 	}
+	attachEventListeners();
 }
-
-drawGrid();
 
 function clearGrid() {
 	while (gridContainer.firstChild) {
@@ -47,17 +46,18 @@ getGridSize.addEventListener("click", function() {
 });
 
 
-
-const blocks = document.querySelectorAll('.block');
-blocks.forEach(block => {
-	block.addEventListener('mouseover', updateBackground);
-})
+function attachEventListeners() {
+	const blocks = document.querySelectorAll('.block');
+	blocks.forEach((block) => {
+	  block.addEventListener('mouseover', updateBackground);
+	});
+  }
 
 function updateBackground(event){
-	console.log("MouseOver");
-	console.log(event);
 	// Change the background color of the block
 	event.target.style.backgroundColor = 'black';
 } 
 
 
+
+drawGrid();
