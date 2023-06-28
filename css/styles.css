@@ -27,31 +27,31 @@ header {
 	background-color: brown;
 	cursor: alias;
 }
-#colorModes {
+#brushModes {
 	display: flex;
 	justify-content: space-evenly;
 	width: 400px;
 	flex-direction: row;
 	align-content: stretch;
 }
-#colorModes > div > div {
+#brushModes > div > div {
 	height: 50px;
 	width: 50px;
 	border-radius: 10%; 
 }
-#colorModes #green {
+#brushModes #brush {
 	background-color: greenyellow;
 }
-#colorModes #rainbow {
+#brushModes #rainbow {
 	background-color: rgb(134, 24, 24);
 }
-#colorModes #eraser {
+#brushModes #eraser {
 	background-color: rgb(66, 44, 44);
 }
-#colorModes #clear {
+#brushModes #clear {
 	background-color: rgb(155, 122, 122);
 }
-#colorModes > div {
+#brushModes > div {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;

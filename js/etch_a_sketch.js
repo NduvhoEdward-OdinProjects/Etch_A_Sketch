@@ -20,7 +20,7 @@ function drawGrid() {
 	    }
 	    gridContainer.appendChild(blocksRow);
 	}
-	attachEventListeners();
+	attachBlockEventListeners();
 }
 
 function clearGrid() {
@@ -46,18 +46,37 @@ getGridSize.addEventListener("click", function() {
 });
 
 
-function attachEventListeners() {
+function attachBlockEventListeners() {
 	const blocks = document.querySelectorAll('.block');
 	blocks.forEach((block) => {
 	  block.addEventListener('mouseover', updateBackground);
 	});
   }
 
-function updateBackground(event){
-	// Change the background color of the block
-	event.target.style.backgroundColor = 'black';
-} 
+let currentBrush = 'brush';
+function updateBackground(event) {
+	if (currentBrush === 'brush') {
+		event.target.style.backgroundColor = 'black';
+	} else if (currentBrush === 'eraser') {
+		event.target.style.backgroundColor = 'rgb(170, 170, 170)';
+	} else if (currentBrush === 'customBrush') {
+	// For example, you can change the background color to a different color or apply patterns/textures
+	}
+}
 
+let brushModes = document.querySelectorAll("#brushModes > div > div");
+brushModes.forEach(brushMode => {
+	brushMode.addEventListener('click', updateBrushMode);
+});
 
+function updateBrushMode(event) {
+	let clicked = event.target.id;
+	if (clicked == 'brush') 
+		currentBrush = 'brush';
+	else if (clicked = 'eraser')
+		currentBrush = 'eraser';
+	else if (clicked = 'rainbow')
+		currentBrush = 'rainbow';
+}
 
 drawGrid();
