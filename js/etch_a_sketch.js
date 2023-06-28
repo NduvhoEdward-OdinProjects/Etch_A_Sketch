@@ -5,11 +5,19 @@ gridContainer.classList.add('grid-container');
 const main = document.querySelector('main');
 main.appendChild(gridContainer);
 
+const clearButton = document.createElement('button');
+clearButton.classList.add('clearButton');
+clearButton.textContent = 'CLEAR BOARD';
+main.appendChild(clearButton);
+clearButton.addEventListener('click', drawGrid);
+
 // Grids 
 let gridSize = 16;
 let blocksRow = null; 
 
 function drawGrid() {
+	clearGrid();
+	
 	for (let i = 0; i < gridSize; i++) { 
 	    blocksRow = document.createElement('div');
 	    blocksRow.classList.add('blocksRow');

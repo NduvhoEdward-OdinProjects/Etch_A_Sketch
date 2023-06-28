@@ -64,6 +64,7 @@ main {
 	display: flex;
 	height: 600px;
 	width: 600px;
+	flex-direction: column;
 }
 .grid-container {
 	background-color: rgb(12, 15, 25);
@@ -73,6 +74,10 @@ main {
 	display: flex;
 	flex-direction: column;
 	flex: 1 1 auto;
+}
+main .clearButton {
+	width: 600px;
+	height: 48px;
 }
 
 footer {
