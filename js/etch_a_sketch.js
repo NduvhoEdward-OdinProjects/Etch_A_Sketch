@@ -18,6 +18,21 @@ clearButton.textContent = 'CLEAR BOARD';
 main.appendChild(clearButton);
 clearButton.addEventListener('click', drawGrid);
 
+// Size update and slider code 
+const gridSizeSlider = document.getElementById('gridSizeSlider');
+const gridSizeLabel = document.getElementById('gridSizeLabel');
+const sizeApplyButton = document.getElementById('sizeApplyButton');
+
+sizeApplyButton.addEventListener('click', function(){
+	gridSize = parseInt(gridSizeSlider.value);
+	drawGrid();
+});
+
+gridSizeSlider.addEventListener('input', function(){
+	gridSizeLabel.textContent = `Grid Size: ${gridSizeSlider.value}`;
+});
+//___________________________
+
 // Grids 
 function drawGrid() {
 	clearGrid();
@@ -43,22 +58,6 @@ function clearGrid() {
 		gridContainer.removeChild(gridContainer.firstChild);
 	}
 }
-
-
-// Grid size button 
-let getGridSize = document.getElementById("get-grid-size");
-getGridSize.addEventListener("click", function() {
-	
-	let userInput = prompt("Please enter your desired grid size:");
-	let parsedInput = parseInt(userInput);
-	if (!isNaN(parsedInput)) {
-    	gridSize = parsedInput;
-    	clearGrid()
-		drawGrid();
-  	} else {
-    	console.log("Invalid input: " + userInput);
-  	}
-});
 
 function attachBlockEventListeners() {
 	const blocks = document.querySelectorAll('.block');

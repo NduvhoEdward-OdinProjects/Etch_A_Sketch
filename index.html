@@ -11,7 +11,10 @@
 	<header>
 		<h1>Welcome (In a fency buttler voice)</h1>
 		<p class="greeting">Shall we begin?</p>
-		<button id="get-grid-size">Configure Grid</button>
+
+		<input type="range" id="gridSizeSlider" min="4" max="50" step="1"> 
+		<span id="gridSizeLabel">Grid Size: 12</span>
+		<button id="sizeApplyButton">Apply</button>
 
 		<p>Select Color/Mode</p>
 		<div id="brushModes">
