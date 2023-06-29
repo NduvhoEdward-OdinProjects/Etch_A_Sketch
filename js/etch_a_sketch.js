@@ -75,7 +75,8 @@ function updateBackground(event) {
 		event.target.style.backgroundColor = 'black';
 	} else if (currentBrush === 'eraser' && ctrlIsPressed) {
 		event.target.style.backgroundColor = 'rgb(170, 170, 170)';
-	} else if (currentBrush === 'customBrush' && ctrlIsPressed) {
+	} else if (currentBrush === 'rainbow' && ctrlIsPressed) {
+		event.target.style.backgroundColor = 'brown';
 	// For example, you can change the background color to a different color or apply patterns/textures
 	}
 }
@@ -89,21 +90,12 @@ function updateBrushMode(event) {
 	let clicked = event.target.id;
 	if (clicked == 'brush') 
 		currentBrush = 'brush';
-	else if (clicked = 'eraser')
+	else if (clicked == 'eraser')
 		currentBrush = 'eraser';
-	else if (clicked = 'rainbow')
+	else if (clicked == 'rainbow')
 		currentBrush = 'rainbow';
 } 
 //______________________________
 
-// CTRL brush activation setup 
-document.addEventListener('keydown', handleKeyPress);
-function handleKeyPress(event) {
-	if (event.key === "Enter") {
-		brushActive = true;
-		console.log(event);
-	}
-}
-//----------------------------
 
 drawGrid();

@@ -40,7 +40,7 @@ header {
 	border-radius: 10%; 
 }
 #brushModes #brush {
-	background-color: greenyellow;
+	background-color: black;
 }
 #brushModes #rainbow {
 	background-color:  rgb(134, 24, 24);
