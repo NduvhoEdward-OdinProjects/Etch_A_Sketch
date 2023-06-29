@@ -1,8 +1,9 @@
 
-let currentBrush = 'brush';
+let currentBrush = 'black';
 let gridSize = 16;
 let blocksRow = null; 
 let brushActive = false; 
+let brushes = document.querySelectorAll('.brush'); 
 
 // Grid container
 const gridContainer = document.createElement('div');
@@ -20,7 +21,7 @@ clearButton.addEventListener('click', drawGrid);
 // Grids 
 function drawGrid() {
 	clearGrid();
-	currentBrush = 'brush';
+	currentBrush = 'black';
 
 	for (let i = 0; i < gridSize; i++) { 
 	    blocksRow = document.createElement('div');
@@ -32,7 +33,9 @@ function drawGrid() {
 	    }
 	    gridContainer.appendChild(blocksRow);
 	}
-	attachBlockEventListeners();
+	attachBlockEventListeners(); 
+	attachBrushEventListeners(); 
+	defaultBrushSelection();
 }
 
 function clearGrid() {
@@ -57,7 +60,6 @@ getGridSize.addEventListener("click", function() {
   	}
 });
 
-
 function attachBlockEventListeners() {
 	const blocks = document.querySelectorAll('.block');
 	blocks.forEach((block) => {
@@ -69,7 +71,7 @@ function attachBlockEventListeners() {
 // Active brush mode/type setup 
 function updateBackground(event) {
 	let ctrlIsPressed = event.ctrlKey;
-	if (currentBrush === 'brush' && ctrlIsPressed) {
+	if (currentBrush === 'black' && ctrlIsPressed) {
 		event.target.style.backgroundColor = 'black';
 	} else if (currentBrush === 'eraser' && ctrlIsPressed) {
 		event.target.style.backgroundColor = 'rgb(170, 170, 170)';
@@ -78,21 +80,38 @@ function updateBackground(event) {
 	}
 }
 
-let brushModes = document.querySelectorAll("#brushModes > div > div");
-brushModes.forEach(brushMode => {
-	brushMode.addEventListener('click', updateBrushMode);
-});
+function attachBrushEventListeners() {
+	brushes.forEach(brush => {
+		brush.addEventListener('mouseover', function() {
+			brush.classList.add('hovered'); 
+		})
+		brush.addEventListener('mouseout', function() {
+			brush.classList.remove('hovered'); 
+		})
+		brush.addEventListener('click', function(event) {
+			brushes.forEach(brush => {
+				brush.classList.remove('clicked');
+			});
 
-function updateBrushMode(event) {
-	let clicked = event.target.id;
-	if (clicked == 'brush') 
-		currentBrush = 'brush';
-	else if (clicked == 'eraser')
-		currentBrush = 'eraser';
-	else if (clicked == 'rainbow')
-		currentBrush = 'rainbow';
+			brush.classList.add('clicked');
+
+			let clicked = event.target.id; 
+			if (clicked == 'black') {
+				currentBrush = 'black';  
+			}
+			else if (clicked == 'eraser') {
+				currentBrush = 'eraser';
+			}
+			else if (clicked == 'rainbow') {
+				currentBrush = 'rainbow';
+			}			
+		})
+	});
 } 
 //______________________________
-
+function defaultBrushSelection() {
+	let element = document.querySelector("#black");
+	element.click();
+}
 
 drawGrid();

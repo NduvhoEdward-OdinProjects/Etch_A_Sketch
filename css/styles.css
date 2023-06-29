@@ -24,22 +24,35 @@ header {
 	padding: 16px;
 	margin: 4px;
 	border-radius: 8px;
-	background-color: brown;
+	background-color: rgb(66, 15, 15);
 	cursor: alias;
+	font-size: large;
+	font-weight: bold;
 }
 #brushModes {
 	display: flex;
 	justify-content: space-evenly;
 	width: 400px;
+	height: 100px;
 	flex-direction: row;
 	align-content: stretch;
 }
-#brushModes > div > div {
+.brush {
 	height: 50px;
 	width: 50px;
 	border-radius: 10%; 
+	transition: all 0.3s ease;
 }
-#brushModes #brush {
+.brush.hovered {
+	height: 70px;
+	width: 70px;
+}
+.brush.clicked {
+	height: 80px;
+	width: 80px;
+}
+
+#brushModes #black {
 	background-color: black;
 }
 #brushModes #rainbow {
@@ -98,7 +111,7 @@ footer {
 	transition: background-color 0.5s;
 }
 .block:hover {
-	background-color: rgb(25, 60, 20);
+	background-color: rgb(159, 194, 34);
 }
 .blocksRow {
 	display: flex;
@@ -107,4 +120,5 @@ footer {
 .blocksRow > * {
 	flex: 1;
 }
+
 
