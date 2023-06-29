@@ -62,14 +62,12 @@ function attachBlockEventListeners() {
 	const blocks = document.querySelectorAll('.block');
 	blocks.forEach((block) => {
 	  block.addEventListener('mouseover', updateBackground);
+	  block.addEventListener('click', updateBackground);
 	});
 }
 
 // Active brush mode/type setup 
 function updateBackground(event) {
-	//if (!brushActive) {
-	//	return;
-	//}
 	let ctrlIsPressed = event.ctrlKey;
 	if (currentBrush === 'brush' && ctrlIsPressed) {
 		event.target.style.backgroundColor = 'black';
@@ -77,7 +75,6 @@ function updateBackground(event) {
 		event.target.style.backgroundColor = 'rgb(170, 170, 170)';
 	} else if (currentBrush === 'rainbow' && ctrlIsPressed) {
 		event.target.style.backgroundColor = 'brown';
-	// For example, you can change the background color to a different color or apply patterns/textures
 	}
 }
 
