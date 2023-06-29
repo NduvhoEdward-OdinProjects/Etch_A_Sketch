@@ -9,13 +9,13 @@ let brushes = document.querySelectorAll('.brush');
 const gridContainer = document.createElement('div');
 gridContainer.classList.add('grid-container');
 
-const main = document.querySelector('main');
-main.appendChild(gridContainer);
+const gridStuff = document.querySelector('#gridStuff');
+gridStuff.appendChild(gridContainer);
 
 const clearButton = document.createElement('button');
 clearButton.classList.add('clearButton');
 clearButton.textContent = 'CLEAR BOARD';
-main.appendChild(clearButton);
+gridStuff.appendChild(clearButton);
 clearButton.addEventListener('click', drawGrid);
 
 // Size update and slider code 

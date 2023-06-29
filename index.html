@@ -8,15 +8,11 @@
 </head>
 <body>
 
-	<header>
-		<h1>Welcome (In a fency buttler voice)</h1>
-		<p class="greeting">Shall we begin?</p>
+	<header> 
+		<h1>Welcome (In a fency buttler voice)</h1> 
+	</header>
+	<main>
 
-		<input type="range" id="gridSizeSlider" min="4" max="50" step="1"> 
-		<span id="gridSizeLabel">Grid Size: 12</span>
-		<button id="sizeApplyButton">Apply</button>
-
-		<p>Select Color/Mode</p>
 		<div id="brushModes">
 			<div>
 				<div class="brush" id="black"></div>
@@ -32,8 +28,15 @@
 			</div>
 		</div>
 
-	</header>
-	<main></main>
+		<div id="gridStuff">
+			<div id="sizeSliderStuff">
+				<input type="range" id="gridSizeSlider" min="4" max="100" step="1"> 
+				<span id="gridSizeLabel">Grid Size: 52</span>
+				<button id="sizeApplyButton">Apply</button>
+			</div>
+		</div>
+
+	</main>
 	<footer> &copy; NduvhoEdward </footer>
 
 </body>
