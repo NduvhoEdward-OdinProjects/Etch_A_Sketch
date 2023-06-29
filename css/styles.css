@@ -43,10 +43,10 @@ header {
 	background-color: greenyellow;
 }
 #brushModes #rainbow {
-	background-color: rgb(134, 24, 24);
+	background-color:  rgb(134, 24, 24);
 }
 #brushModes #eraser {
-	background-color: rgb(66, 44, 44);
+	background-color: rgb(170, 170, 170);
 }
 #brushModes #clear {
 	background-color: rgb(155, 122, 122);
@@ -55,6 +55,7 @@ header {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	align-items: center;
 }
 
 
@@ -62,8 +63,6 @@ header {
 
 main {
 	display: flex;
-	height: 600px;
-	width: 600px;
 	flex-direction: column;
 }
 .grid-container {
@@ -73,11 +72,15 @@ main {
 	border-radius: 8px;
 	display: flex;
 	flex-direction: column;
-	flex: 1 1 auto;
+	flex: 1 1 auto; 
+	height: 500px;
+	width: 500px;
 }
 main .clearButton {
 	width: 600px;
-	height: 48px;
+	height: 40px;
+	margin-bottom: 16px;	
+	background-color: rgb(170, 170, 170);
 }
 
 footer {

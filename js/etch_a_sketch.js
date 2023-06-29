@@ -1,3 +1,9 @@
+
+let currentBrush = 'brush';
+let gridSize = 16;
+let blocksRow = null; 
+let brushActive = false; 
+
 // Grid container
 const gridContainer = document.createElement('div');
 gridContainer.classList.add('grid-container');
@@ -12,12 +18,10 @@ main.appendChild(clearButton);
 clearButton.addEventListener('click', drawGrid);
 
 // Grids 
-let gridSize = 16;
-let blocksRow = null; 
-
 function drawGrid() {
 	clearGrid();
-	
+	currentBrush = 'brush';
+
 	for (let i = 0; i < gridSize; i++) { 
 	    blocksRow = document.createElement('div');
 	    blocksRow.classList.add('blocksRow');
@@ -59,15 +63,19 @@ function attachBlockEventListeners() {
 	blocks.forEach((block) => {
 	  block.addEventListener('mouseover', updateBackground);
 	});
-  }
+}
 
-let currentBrush = 'brush';
+// Active brush mode/type setup 
 function updateBackground(event) {
-	if (currentBrush === 'brush') {
+	//if (!brushActive) {
+	//	return;
+	//}
+	let ctrlIsPressed = event.ctrlKey;
+	if (currentBrush === 'brush' && ctrlIsPressed) {
 		event.target.style.backgroundColor = 'black';
-	} else if (currentBrush === 'eraser') {
+	} else if (currentBrush === 'eraser' && ctrlIsPressed) {
 		event.target.style.backgroundColor = 'rgb(170, 170, 170)';
-	} else if (currentBrush === 'customBrush') {
+	} else if (currentBrush === 'customBrush' && ctrlIsPressed) {
 	// For example, you can change the background color to a different color or apply patterns/textures
 	}
 }
@@ -85,6 +93,17 @@ function updateBrushMode(event) {
 		currentBrush = 'eraser';
 	else if (clicked = 'rainbow')
 		currentBrush = 'rainbow';
+} 
+//______________________________
+
+// CTRL brush activation setup 
+document.addEventListener('keydown', handleKeyPress);
+function handleKeyPress(event) {
+	if (event.key === "Enter") {
+		brushActive = true;
+		console.log(event);
+	}
 }
+//----------------------------
 
 drawGrid();
