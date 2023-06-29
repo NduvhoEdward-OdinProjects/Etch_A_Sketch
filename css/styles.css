@@ -4,6 +4,17 @@
 	background-color: #3b2222;
 	box-sizing: border-box;
 }
+
+span#gridSizeLabel, #sizeApplyButton, h1 {
+    display: flex;
+    justify-content: center;
+    font-size: medium;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: xx-large;
+}
 body {
 	display: flex;
 	flex-direction: column;
