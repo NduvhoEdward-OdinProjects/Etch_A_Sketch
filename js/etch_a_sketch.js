@@ -113,4 +113,66 @@ function defaultBrushSelection() {
 	element.click();
 }
 
+// SaveButton Stuff
+
+// Your existing code for drawing the grid and updating background
+
+// Save Sketch button
+const saveButton = document.getElementById('saveButton');
+saveButton.addEventListener('click', function() {
+  saveSketch();
+});
+
+async function saveSketch() {
+  const canvas = document.createElement('canvas');
+  const blocks = document.querySelectorAll('.block');
+
+  let blockWidth = 5;
+  let blockHeight = blockWidth;
+  // Determine the dimensions of the canvas based on the grid size
+  const gridSize = Math.sqrt(blocks.length);
+  const canvasSize = gridSize * blockWidth; // Adjust blockWidth according to your grid layout
+
+  // Set the canvas size
+  canvas.width = canvasSize;
+  canvas.height = canvasSize;
+
+  const ctx = canvas.getContext('2d');
+
+  // Draw the sketch onto the canvas
+  let blockIndex = 0;
+  blocks.forEach(block => {
+    const backgroundColor = block.style.backgroundColor;
+    const x = (blockIndex % gridSize) * blockWidth;
+    const y = Math.floor(blockIndex / gridSize) * blockHeight; // Adjust blockHeight according to your grid layout
+
+    ctx.fillStyle = backgroundColor;
+    ctx.fillRect(x, y, blockWidth, blockHeight); // Adjust blockWidth and blockHeight according to your grid layout
+
+    blockIndex++;
+  });
+
+  // Convert the canvas content to a Blob
+  const blob = await new Promise(resolve => {
+    canvas.toBlob(resolve, 'image/png');
+  });
+
+  // Create a File object from the Blob
+  const file = new File([blob], 'sketch.png', { type: 'image/png' });
+
+  // Save the file using the File System Access API
+// Save the file using the File System Access API
+try {
+	const handle = await window.showSaveFilePicker();
+	const writableStream = await handle.createWritable();
+	await writableStream.write(file);
+	await writableStream.close();
+	console.log('Sketch saved successfully!');
+  } catch (err) {
+	console.error('Error saving the sketch:', err);
+  }
+  
+}
+
+
 drawGrid();
